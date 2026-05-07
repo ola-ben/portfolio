@@ -5,7 +5,8 @@
       "PowerShell(npm install react react-dom react-router-dom framer-motion lucide-react)",
       "PowerShell(npm install --save-dev tailwindcss @tailwindcss/vite)",
       "PowerShell(npm run build)",
-      "PowerShell(npm install --save-dev vite@^5 @vitejs/plugin-react@^4)"
+      "PowerShell(npm install --save-dev vite@^5 @vitejs/plugin-react@^4)",
+      "PowerShell(Rename-Item -Path \"public\\\\New Microsoft Word Document.pdf\" -NewName \"Benjamin-Olaoluwa-CV.pdf\")"
     ]
   }
 }

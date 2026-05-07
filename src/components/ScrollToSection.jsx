@@ -7,6 +7,7 @@ const pathToId = {
   '/projects': 'projects',
   '/skills': 'skills',
   '/experience': 'experience',
+  '/education': 'education',
   '/contact': 'contact',
 }
 

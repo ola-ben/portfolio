@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Sparkles } from 'lucide-react'
+import { ArrowRight, Download, MapPin, Sparkles } from 'lucide-react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -84,12 +84,14 @@ export default function Hero() {
             View Projects
             <ArrowRight size={16} className="transition group-hover:translate-x-1" />
           </Link>
-          <Link
-            to="/contact"
+          <a
+            href="/Benjamin-Olaoluwa-CV.pdf"
+            download
             className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
           >
-            Get in touch
-          </Link>
+            <Download size={16} />
+            Download CV
+          </a>
         </motion.div>
 
         <motion.div
