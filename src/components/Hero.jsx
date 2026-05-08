@@ -38,7 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl md:text-7xl dark:text-slate-50"
         >
-          Hey, I'm{' '}
+          Hello, I'm{' '}
           <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Benjamin Olaoluwa
           </span>
