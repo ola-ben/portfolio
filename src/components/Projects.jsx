@@ -27,17 +27,21 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
             >
-              <div className="aspect-video overflow-hidden bg-linear-to-br from-indigo-100 to-pink-100 dark:from-indigo-900/30 dark:to-pink-900/30">
-                <img
-                  src={p.image}
-                  alt={`${p.name} screenshot`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
+              {p.live ? (
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${p.name} live site`}
+                  className="relative block"
+                >
+                  <ProjectImage project={p} />
+                </a>
+              ) : (
+                <ProjectImage project={p} />
+              )}
 
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">{p.name}</h3>
@@ -87,5 +91,39 @@ export default function Projects() {
         </div>
       </div>
     </section>
+  )
+}
+
+function ProjectImage({ project }) {
+  return (
+    <div className="relative p-[2px]">
+      <motion.div
+        aria-hidden
+        className="absolute inset-0 rounded-t-2xl opacity-70 blur-md"
+        style={{
+          background:
+            'conic-gradient(from var(--angle, 0deg), #6366f1, #a855f7, #ec4899, #6366f1)',
+        }}
+        animate={{ '--angle': ['0deg', '360deg'] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+      />
+      <div className="relative aspect-video overflow-hidden rounded-t-xl bg-linear-to-br from-indigo-100 to-pink-100 dark:from-indigo-900/30 dark:to-pink-900/30">
+        <img
+          src={project.image}
+          alt={`${project.name} screenshot`}
+          loading="lazy"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+
+        {project.live && (
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-950/0 opacity-0 transition duration-300 group-hover:bg-slate-950/50 group-hover:opacity-100">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg">
+              <ExternalLink size={14} />
+              View live
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }

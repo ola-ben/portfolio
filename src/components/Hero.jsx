@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, MapPin, Sparkles } from 'lucide-react'
 
@@ -7,7 +7,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 }
 
+const NAME = 'Benjamin Olaoluwa'
+
 export default function Hero() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <section
       id="top"
@@ -39,8 +43,27 @@ export default function Hero() {
           className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl md:text-7xl dark:text-slate-50"
         >
           Hello, I'm{' '}
-          <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            Benjamin Olaoluwa
+          <span
+            aria-label={NAME}
+            className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            {NAME.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                aria-hidden
+                initial={reduceMotion ? false : { opacity: 0, y: 40, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 220,
+                  damping: 18,
+                  delay: reduceMotion ? 0 : 0.35 + i * 0.04,
+                }}
+                style={{ display: 'inline-block', whiteSpace: 'pre' }}
+              >
+                {char === ' ' ? ' ' : char}
+              </motion.span>
+            ))}
           </span>
           .
         </motion.h1>
