@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Lock } from 'lucide-react'
 import { projects } from '../data/projects'
 import GithubIcon from './GithubIcon'
+
+function getHost(url) {
+  try {
+    return new URL(url).host.replace(/^www\./, '')
+  } catch {
+    return url
+  }
+}
 
 export default function Projects() {
   return (
@@ -96,27 +104,31 @@ export default function Projects() {
 
 function ProjectImage({ project }) {
   return (
-    <div className="relative p-[2px]">
-      <motion.div
-        aria-hidden
-        className="absolute inset-0 rounded-t-2xl opacity-70 blur-md"
-        style={{
-          background:
-            'conic-gradient(from var(--angle, 0deg), #6366f1, #a855f7, #ec4899, #6366f1)',
-        }}
-        animate={{ '--angle': ['0deg', '360deg'] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-      />
-      <div className="relative aspect-video overflow-hidden rounded-t-xl bg-linear-to-br from-indigo-100 to-pink-100 dark:from-indigo-900/30 dark:to-pink-900/30">
+    <div className="relative">
+      <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-100 px-4 py-2.5 dark:border-slate-800 dark:bg-slate-800/60">
+        <span className="flex gap-1.5" aria-hidden>
+          <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/90" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
+        </span>
+        {project.live && (
+          <span className="ml-2 inline-flex min-w-0 flex-1 items-center gap-1.5 truncate rounded-md bg-white px-2.5 py-1 font-mono text-[11px] text-slate-500 ring-1 ring-slate-200 dark:bg-slate-900 dark:text-slate-400 dark:ring-slate-700">
+            <Lock size={10} className="shrink-0 text-emerald-500" />
+            <span className="truncate">{getHost(project.live)}</span>
+          </span>
+        )}
+      </div>
+
+      <div className="relative aspect-video overflow-hidden bg-slate-50 dark:bg-slate-950">
         <img
           src={project.image}
           alt={`${project.name} screenshot`}
           loading="lazy"
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]"
         />
 
         {project.live && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-950/0 opacity-0 transition duration-300 group-hover:bg-slate-950/50 group-hover:opacity-100">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-950/0 opacity-0 transition duration-300 group-hover:bg-slate-950/40 group-hover:opacity-100">
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg">
               <ExternalLink size={14} />
               View live
