@@ -32,7 +32,7 @@ export const projects = [
     description:
       'Mobile-first long-term rental platform with video tours, interactive map search, side-by-side compare, in-app inspection booking, an affordability calculator, and editorial neighborhood guides. Every home is physically verified — direct landlord pay, no agency fees, lease drafted by lawyers.',
     stack: ['React 18', 'TypeScript', 'Vite', 'Tailwind v3', 'Framer Motion', 'React Router 6', 'Leaflet', 'Vercel'],
-    live: 'https://ben-lease.vercel.app',
+    live: 'https://benlease.vercel.app',
     github: 'https://github.com/ola-ben/ben-lease',
     image: benleaseImage,
   },
