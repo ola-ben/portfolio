@@ -42,7 +42,7 @@ export default function Contact() {
         >
           <p className="text-sm font-medium uppercase tracking-widest text-indigo-500">Contact</p>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl dark:text-slate-50">
-            Let's build something together.
+            Let's build something together...
           </h2>
           <p className="mt-4 text-base text-slate-600 dark:text-slate-400">
             I'm open to junior / mid full-stack and front-end opportunities — remote or
