@@ -8,19 +8,23 @@ export default function ThemeToggle() {
     return document.documentElement.classList.contains('dark')
   })
 
+  // Keep the DOM class in sync, but DON'T persist here — writing localStorage on
+  // first mount would pin a visitor to their initial OS theme and break
+  // "follow system preference" after the first visit.
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
+    document.documentElement.classList.toggle('dark', isDark)
   }, [isDark])
+
+  const toggle = () =>
+    setIsDark(v => {
+      const next = !v
+      localStorage.setItem('theme', next ? 'dark' : 'light')
+      return next
+    })
 
   return (
     <button
-      onClick={() => setIsDark(v => !v)}
+      onClick={toggle}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
     >

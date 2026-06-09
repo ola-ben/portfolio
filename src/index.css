@@ -4,6 +4,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset anchored scrolling so sections don't land under the fixed navbar. */
+  scroll-padding-top: 5rem;
 }
 
 body {
