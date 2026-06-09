@@ -116,9 +116,10 @@
     <script>
       (function () {
         try {
-          var s = localStorage.getItem('theme');
-          var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+          // Default to light. Only go dark if the user explicitly chose it before.
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
         } catch (e) {}
       })();
     </script>
