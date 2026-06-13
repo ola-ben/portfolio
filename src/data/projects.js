@@ -1,5 +1,6 @@
 import ajaniImage from '../assets/ajaniai.jpeg'
 import vendorhqImage from '../assets/vendorhq.jpeg'
+import storelinkImage from '../assets/storelink.png'
 import benleaseImage from '../assets/benlease.jpeg'
 import eatorderImage from '../assets/eatorder.jpeg'
 import speedtouchImage from '../assets/speedtouch.jpeg'
@@ -25,6 +26,17 @@ export const projects = [
     live: 'https://vendorhq.vercel.app',
     github: null,
     image: vendorhqImage,
+  },
+  {
+    name: 'StoreLink',
+    tagline: 'Turn WhatsApp into a real storefront for Nigerian sellers',
+    description:
+      'Lets WhatsApp & Instagram vendors build a clean mini-store, share one link, and take orders that deep-link straight into WhatsApp with phone-number normalization. Editorial design system, dark mode, and QR generation — a local-first MVP architected for a full-stack upgrade.',
+    stack: ['React', 'Vite', 'Tailwind', 'Framer Motion', 'QR generation', 'WhatsApp deep-linking'],
+    live: 'https://naija-storefront.vercel.app',
+    github: null,
+    image: storelinkImage,
+    planned: 'Supabase persistence so links work cross-device, vendor accounts, and Paystack-powered paid tiers.',
   },
   {
     name: 'Ben Lease',

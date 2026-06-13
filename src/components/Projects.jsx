@@ -69,6 +69,17 @@ export default function Projects() {
                   ))}
                 </div>
 
+                {p.planned && (
+                  <div className="mt-4 flex items-start gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50/60 px-3 py-2 dark:border-slate-700 dark:bg-slate-800/40">
+                    <span className="mt-px shrink-0 rounded-full bg-indigo-500/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-indigo-500">
+                      Next
+                    </span>
+                    <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                      {p.planned}
+                    </p>
+                  </div>
+                )}
+
                 <div className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-4 dark:border-slate-800">
                   {p.live && (
                     <a
