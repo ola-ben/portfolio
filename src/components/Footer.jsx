@@ -4,13 +4,13 @@ export default function Footer() {
   const visible = socials.filter(s => s.href)
 
   return (
-    <footer className="border-t border-slate-200 px-6 py-10 dark:border-slate-800">
+    <footer className="border-t border-ink/12 px-6 py-10 bg-transparent">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="font-mono text-xs uppercase tracking-wider text-ink/45">
           © {new Date().getFullYear()} Oladimeji Benjamin Olaoluwa
         </p>
 
-        <ul className="flex items-center gap-3">
+        <ul className="flex items-center gap-2">
           {visible.map(({ label, href, Icon }) => (
             <li key={label}>
               <a
@@ -19,15 +19,15 @@ export default function Footer() {
                 rel={href.startsWith('http') ? 'noreferrer' : undefined}
                 aria-label={label}
                 title={label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-indigo-300 hover:text-indigo-500 dark:border-slate-800 dark:text-slate-400 dark:hover:border-indigo-700"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-none border border-ink/12 text-ink/70 bg-transparent transition hover:bg-ink/[0.04] hover:text-ink"
               >
-                <Icon size={18} />
+                <Icon size={16} />
               </a>
             </li>
           ))}
         </ul>
 
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="font-mono text-xs uppercase tracking-wider text-ink/45">
           Built with React, Tailwind & Framer Motion.
         </p>
       </div>

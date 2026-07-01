@@ -17,42 +17,37 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-screen items-center px-6 pt-24 pb-16"
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-indigo-300/30 blur-3xl dark:bg-indigo-600/20" />
-        <div className="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-pink-300/30 blur-3xl dark:bg-pink-600/20" />
-      </div>
-
       <motion.div
         initial="hidden"
         animate="visible"
         transition={{ staggerChildren: 0.12 }}
-        className="relative mx-auto max-w-4xl"
+        className="relative mx-auto max-w-4xl w-full"
       >
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-sm text-slate-600 backdrop-blur dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300"
+          className="mb-6 inline-flex items-center gap-2 rounded-none border border-ink/15 bg-transparent px-3 py-1 font-mono text-xs uppercase tracking-wider text-ink/70"
         >
-          <Sparkles size={14} className="text-indigo-500" />
+          <Sparkles size={12} />
           Open to junior / mid full-stack roles
         </motion.div>
 
         <motion.h1
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl md:text-7xl dark:text-slate-50"
+          className="text-5xl font-bold tracking-tightest text-ink sm:text-6xl md:text-7xl font-sans"
         >
           Hello, I'm{' '}
           <span
             aria-label={NAME}
-            className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            className="text-ink"
           >
             {NAME.split('').map((char, i) => (
               <motion.span
                 key={i}
                 aria-hidden
-                initial={reduceMotion ? false : { opacity: 0, y: 40, rotateX: -90 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   type: 'spring',
                   stiffness: 220,
@@ -71,7 +66,7 @@ export default function Hero() {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-4 text-xl text-slate-600 sm:text-2xl dark:text-slate-400"
+          className="mt-4 text-xl text-ink/70 sm:text-2xl font-sans"
         >
           Junior Full-Stack Developer who ships production web apps end-to-end.
         </motion.p>
@@ -79,14 +74,14 @@ export default function Hero() {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-slate-500 dark:text-slate-400"
+          className="mt-6 max-w-2xl text-base leading-relaxed text-ink/55 font-sans"
         >
           Currently leading{' '}
           <a
             href="https://ajani.ai"
             target="_blank"
             rel="noreferrer"
-            className="font-medium text-indigo-500 hover:underline"
+            className="font-medium text-ink underline underline-offset-4 decoration-ink/35 hover:decoration-ink transition-colors"
           >
             Ajani
           </a>{' '}
@@ -102,17 +97,17 @@ export default function Hero() {
         >
           <Link
             to="/projects"
-            className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+            className="group inline-flex items-center gap-2 bg-ink text-paper border border-transparent px-5 py-2.5 rounded-none font-mono text-xs uppercase tracking-wider transition-colors hover:bg-paper hover:text-ink hover:border-ink"
           >
             View Projects
-            <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+            <ArrowRight size={14} className="transition group-hover:translate-x-1" />
           </Link>
           <a
             href="/Benjamin-Olaoluwa-CV.pdf"
             download
-            className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
+            className="inline-flex items-center gap-2 border border-ink/15 text-ink/70 bg-transparent px-5 py-2.5 rounded-none font-mono text-xs uppercase tracking-wider transition-colors hover:bg-ink/[0.04] hover:text-ink"
           >
-            <Download size={16} />
+            <Download size={14} />
             Download CV
           </a>
         </motion.div>
@@ -120,9 +115,9 @@ export default function Hero() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.5 }}
-          className="mt-10 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400"
+          className="mt-10 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink/45"
         >
-          <MapPin size={14} />
+          <MapPin size={12} />
           Ibadan, Oyo State, Nigeria
         </motion.div>
       </motion.div>

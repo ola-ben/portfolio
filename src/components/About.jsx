@@ -11,8 +11,8 @@ export default function About() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-indigo-500">About</p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl dark:text-slate-50">
+          <p className="font-mono text-xs uppercase tracking-wider text-ink/45">About</p>
+          <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
             Building the web, one shipped feature at a time.
           </h2>
         </motion.div>
@@ -25,7 +25,7 @@ export default function About() {
           className="mt-10 grid gap-8 md:grid-cols-5"
         >
           <div className="md:col-span-2">
-            <div className="relative aspect-square overflow-hidden rounded-2xl bg-linear-to-br from-indigo-200 to-pink-200 shadow-lg ring-1 ring-slate-200 dark:from-indigo-900/40 dark:to-pink-900/40 dark:ring-slate-800">
+            <div className="relative aspect-square overflow-hidden rounded-none border border-ink/12 bg-transparent">
               <img
                 src={profileImage}
                 alt="Benjamin Olaoluwa"
@@ -34,7 +34,7 @@ export default function About() {
               />
             </div>
           </div>
-          <div className="space-y-4 text-base leading-relaxed text-slate-600 md:col-span-3 dark:text-slate-300">
+          <div className="space-y-4 text-base leading-relaxed text-ink/70 md:col-span-3">
             <p>
               I'm a junior full-stack developer based in Ibadan, Nigeria. I currently own the Ajani
               platform end-to-end — frontend, backend, database, and deploy pipeline — translating

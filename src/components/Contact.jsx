@@ -31,7 +31,7 @@ const items = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-6 py-24">
+    <section id="contact" className="border-t border-ink/12 px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,11 +40,11 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <p className="text-sm font-medium uppercase tracking-widest text-indigo-500">Contact</p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl dark:text-slate-50">
+          <p className="font-mono text-xs uppercase tracking-wider text-ink/45">Contact</p>
+          <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
             Let's build something together...
           </h2>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-base text-ink/70">
             I'm open to junior / mid full-stack and front-end opportunities — remote or
             Ibadan-based. Drop me a line.
           </p>
@@ -60,18 +60,18 @@ export default function Contact() {
           {items.map(({ Icon, label, value, href }) => {
             const inner = (
               <>
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-500">
-                  <Icon size={18} />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none border border-ink/12 text-ink">
+                  <Icon size={16} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-ink/45">
                     {label}
                   </p>
-                  <p className="truncate text-sm font-medium text-slate-900 dark:text-slate-100">
+                  <p className="truncate text-sm font-medium text-ink">
                     {value}
                   </p>
                 </div>
-                {href && <ExternalLink size={14} className="shrink-0 text-slate-400" />}
+                {href && <ExternalLink size={12} className="shrink-0 text-ink/45" />}
               </>
             )
             return href ? (
@@ -80,14 +80,14 @@ export default function Contact() {
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noreferrer' : undefined}
-                className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-indigo-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-700"
+                className="flex items-center gap-4 rounded-none border border-ink/12 bg-transparent p-4 transition-colors hover:bg-ink/[0.02]"
               >
                 {inner}
               </a>
             ) : (
               <div
                 key={label}
-                className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+                className="flex items-center gap-4 rounded-none border border-ink/12 bg-transparent p-4"
               >
                 {inner}
               </div>

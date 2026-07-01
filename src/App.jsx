@@ -9,10 +9,11 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToSection from './components/ScrollToSection'
 import ScrollProgress from './components/ScrollProgress'
+import DevModeInspector from './components/DevModeInspector'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-screen bg-paper text-ink transition-colors font-sans">
       <ScrollProgress />
       <ScrollToSection />
       <Navbar />
@@ -26,6 +27,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <DevModeInspector />
     </div>
   )
 }

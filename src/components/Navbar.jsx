@@ -15,29 +15,17 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled
-          ? 'border-b border-slate-200/60 bg-white/70 backdrop-blur-md dark:border-slate-800/60 dark:bg-slate-950/70'
-          : 'border-b border-transparent bg-transparent'
-      }`}
+      className="fixed inset-x-0 top-0 z-50 border-b border-ink/12 bg-paper/85 backdrop-blur-md transition-all"
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="font-bold text-slate-900 dark:text-slate-100">
-          Benjamin<span className="text-indigo-500">.</span>
+        <Link to="/" className="font-mono text-sm font-bold tracking-wider text-ink uppercase">
+          Benjamin.
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -45,7 +33,7 @@ export default function Navbar() {
             <li key={l.to}>
               <Link
                 to={l.to}
-                className="text-sm text-slate-600 transition hover:text-indigo-500 dark:text-slate-400"
+                className="font-mono text-xs uppercase tracking-wider text-ink/70 transition hover:text-ink"
               >
                 {l.label}
               </Link>
@@ -58,7 +46,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(v => !v)}
             aria-label="Toggle menu"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden dark:border-slate-800 dark:text-slate-200"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-none border border-ink/15 text-ink md:hidden bg-transparent hover:bg-ink/[0.04] transition-colors"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -72,14 +60,14 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-950"
+            className="overflow-hidden border-t border-ink/12 bg-paper md:hidden"
           >
             {links.map(l => (
               <li key={l.to}>
                 <Link
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="block px-6 py-3 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-900"
+                  className="block px-6 py-3 font-mono text-xs uppercase tracking-wider text-ink/70 hover:bg-ink/[0.04] hover:text-ink transition-colors"
                 >
                   {l.label}
                 </Link>
