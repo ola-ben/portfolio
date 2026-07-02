@@ -103,7 +103,7 @@ export default function Hero() {
             <ArrowRight size={14} className="transition group-hover:translate-x-1" />
           </Link>
           <a
-            href="/Benjamin-Olaoluwa-CV.pdf"
+            href="/Benjamin-Olaoluwa-CVV.pdf"
             download
             className="inline-flex items-center gap-2 border border-ink/15 text-ink/70 bg-transparent px-5 py-2.5 rounded-none font-mono text-xs uppercase tracking-wider transition-colors hover:bg-ink/[0.04] hover:text-ink"
           >
