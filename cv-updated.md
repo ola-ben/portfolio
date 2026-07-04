@@ -16,10 +16,10 @@ Junior Full-Stack Developer who owns production web apps end-to-end. Currently l
 
 ### Junior Full-Stack Developer
 
-**K3Bot / AjaniAI** — Ibadan, Oyo State, Nigeria · [ajani.ai](https://ajani.ai)
+**Ajani Digital Smart Services** — Ibadan, Oyo State, Nigeria · [ajani.ai](https://ajani.ai)
 _October 2025 – Present_
 
-- Sole developer on the Ajani platform — own frontend, backend, database, and deploy pipeline end-to-end, reporting directly to the founder.
+- Primary developer on the Ajani platform — own frontend, backend, database, and deploy pipeline end-to-end, reporting directly to the founder.
 - Translate product direction into shipped features on a weekly cadence: scope tickets, build, test, deploy, and iterate from daily reviews.
 - Architect and ship the React + Vite frontend, Express 5 / MongoDB REST API, JWT-based RBAC, and Cloudinary asset pipeline.
 - Build and maintain the three audience surfaces — buyer search & booking flow, vendor portal (listings, availability, payouts, accept/reject), and admin moderation panel.

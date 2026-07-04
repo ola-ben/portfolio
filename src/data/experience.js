@@ -1,11 +1,11 @@
 export const experience = [
   {
     role: 'Junior Full-Stack Developer',
-    company: 'K3Bot / AjaniAI',
+    company: 'Ajani Digital Smart Services',
     location: 'Ibadan, Oyo State, Nigeria',
     period: 'October 2025 – Present',
     bullets: [
-      'Sole developer on the Ajani platform — own frontend, backend, database, and deploy pipeline end-to-end, reporting directly to the founder.',
+      'Primary developer on the Ajani platform — own frontend, backend, database, and deploy pipeline end-to-end, reporting directly to the founder.',
       'Translate product direction into shipped features on a weekly cadence: scope tickets, build, test, deploy, and iterate from daily reviews.',
       'Architect and ship the React + Vite frontend, Express 5 / MongoDB REST API, JWT-based RBAC, and Cloudinary asset pipeline.',
       'Build and maintain three audience surfaces — buyer search & booking flow, vendor portal, and admin moderation panel.',
