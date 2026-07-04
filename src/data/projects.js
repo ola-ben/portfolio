@@ -1,6 +1,7 @@
 import ajaniImage from '../assets/ajaniai.jpeg'
 import vendorhqImage from '../assets/vendorhq.jpeg'
 import storelinkImage from '../assets/storelink.png'
+import menulinkImage from '../assets/menulink.png'
 import benleaseImage from '../assets/benlease.jpeg'
 import eatorderImage from '../assets/eatorder.jpeg'
 import speedtouchImage from '../assets/speedtouch.jpeg'
@@ -46,6 +47,30 @@ export const projects = [
       flow: 'Client (Vite/React) ──► Supabase (Auth & DB) ──► Resend SMTP (OTP)\n                                └─► WhatsApp Checkout Link Generator',
       schema: 'stores {\n  id: uuid\n  owner_id: uuid (references auth.users)\n  name: text\n  slug: text (unique)\n  trial_ends_at: timestamp\n}',
       challenge: 'Engineered a seamless client-side migration path syncing local-only offline store states to Supabase database upon user registration, and resolved multi-tab synchronization race conditions.'
+    }
+  },
+  {
+    name: 'MenuLink',
+    tagline: 'Turn restaurant menus into interactive table QR codes',
+    description:
+      'A minimalist, mobile-first digital menu builder and table QR code generator for bukas, restaurants, and food vendors. Features real-time table placard preview, structured WhatsApp order checkout formatting, automated commission-free savings calculator, and a Groq-powered AI chatbot assistant with pleasant audio notification chime and custom mobile hamburger navigation.',
+    stack: [
+      'React 18',
+      'Vite',
+      'Tailwind CSS',
+      'HTML5 Web Audio API',
+      'Supabase',
+      'PostgreSQL',
+      'Groq AI',
+      'QR Code Generation'
+    ],
+    live: 'https://menulinkapp.vercel.app',
+    github: 'https://github.com/ola-ben/menu-builder',
+    image: menulinkImage,
+    spec: {
+      flow: 'Diner ──► Scan Table QR ──► Select Items ──► WhatsApp Checkout\n                                └─► Web Audio API & Groq Assistant',
+      schema: 'menu_orders {\n  id: uuid\n  menu_id: uuid (references menus)\n  items: jsonb (name, qty, price)\n  table_number: integer\n}',
+      challenge: 'Implemented a zero-dependency programmatic audio message notification chime using the Web Audio API, and designed a custom vertical flexbox layout for the simulated diner interface to guarantee a perfect scroll-free display across diverse viewports.'
     }
   },
   {
