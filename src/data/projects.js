@@ -1,7 +1,7 @@
 import ajaniImage from '../assets/ajaniai.jpeg'
 import vendorhqImage from '../assets/vendorhq.jpeg'
 import storelinkImage from '../assets/storelink.png'
-import menulinkImage from '../assets/menulink.png'
+import menulinkImage from '../assets/menulink.jpeg'
 import benleaseImage from '../assets/benlease.jpeg'
 import eatorderImage from '../assets/eatorder.jpeg'
 import speedtouchImage from '../assets/speedtouch.jpeg'
@@ -21,6 +21,21 @@ export const projects = [
       flow: 'Client ──► Express 5 ──► MongoDB (Cluster Index)\n                 └─► Price Intelligence API',
       schema: 'booking {\n  _id: ObjectId\n  buyer_id: ObjectId\n  vendor_id: ObjectId\n  price: Decimal128\n  status: string\n}',
       challenge: 'Designed an asynchronous moderation pipeline evaluating pricing clusters to detect and alert admin on outlier rates.'
+    }
+  },
+  {
+    name: 'Speedtouch',
+    tagline: 'Full-stack e-commerce for a Nigerian cleaning service',
+    description:
+      'Complete storefront with Paystack payments, slide-out cart, delivery-vs-pickup checkout, and admin dashboard. Postgres triggers atomically decrement stock on order. Installable PWA with platform-aware install prompt.',
+    stack: ['React 19', 'Vite', 'Tailwind v4', 'Supabase', 'Paystack', 'vite-plugin-pwa'],
+    live: 'https://speedtouch.com.ng',
+    github: null,
+    image: speedtouchImage,
+    spec: {
+      flow: 'PWA Client (Offline Cache) ──► Supabase ──► Paystack API\n                                 └─► Postgres Trigger (Stock Sync)',
+      schema: 'orders {\n  id: uuid\n  items: jsonb\n  total_amount: numeric\n  payment_verified: boolean\n}',
+      challenge: 'Implemented atomic transactional slot decrementing using Postgres triggers to eliminate double-bookings.'
     }
   },
   {
@@ -71,21 +86,6 @@ export const projects = [
       flow: 'Diner ──► Scan Table QR ──► Select Items ──► WhatsApp Checkout\n                                └─► Web Audio API & Groq Assistant',
       schema: 'menu_orders {\n  id: uuid\n  menu_id: uuid (references menus)\n  items: jsonb (name, qty, price)\n  table_number: integer\n}',
       challenge: 'Implemented a zero-dependency programmatic audio message notification chime using the Web Audio API, and designed a custom vertical flexbox layout for the simulated diner interface to guarantee a perfect scroll-free display across diverse viewports.'
-    }
-  },
-  {
-    name: 'Speedtouch',
-    tagline: 'Full-stack e-commerce for a Nigerian cleaning service',
-    description:
-      'Complete storefront with Paystack payments, slide-out cart, delivery-vs-pickup checkout, and admin dashboard. Postgres triggers atomically decrement stock on order. Installable PWA with platform-aware install prompt.',
-    stack: ['React 19', 'Vite', 'Tailwind v4', 'Supabase', 'Paystack', 'vite-plugin-pwa'],
-    live: 'https://speedtouch-virid.vercel.app',
-    github: null,
-    image: speedtouchImage,
-    spec: {
-      flow: 'PWA Client (Offline Cache) ──► Supabase ──► Paystack API\n                                 └─► Postgres Trigger (Stock Sync)',
-      schema: 'orders {\n  id: uuid\n  items: jsonb\n  total_amount: numeric\n  payment_verified: boolean\n}',
-      challenge: 'Implemented atomic transactional slot decrementing using Postgres triggers to eliminate double-bookings.'
     }
   },
   {
@@ -147,5 +147,5 @@ export const projects = [
       schema: 'pricing_tier {\n  id: string\n  price: number\n  features: string[]\n}',
       challenge: 'Successfully refactored a legacy, unmaintainable vanilla CSS sheet into clean, responsive utility-first Tailwind classes.'
     }
-  },
+  }
 ]

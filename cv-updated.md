@@ -66,7 +66,7 @@ _React · Express · Supabase · PostgreSQL · Vercel · Render_
 
 ### Speedtouch — Full-stack e-commerce platform for a Nigerian cleaning service
 
-**[speedtouch-virid.vercel.app](https://speedtouch-virid.vercel.app)**
+**[speedtouch.com.ng](https://speedtouch.com.ng)**
 _React 19 · Vite · Tailwind CSS v4 · React Router 7 · Supabase (Auth, Postgres, Storage, RLS, triggers) · Paystack · Lucide / React Icons · vite-plugin-pwa · IntersectionObserver_
 
 - Shipped a complete storefront end-to-end: marketing home with services + Jumia-style product strip in NGN (`toLocaleString('en-NG')`), full `/products` listing with category filters & search, `/products/:id` detail with related items, slide-out cart drawer with `localStorage` persistence, **delivery-vs-pickup** checkout, order confirmation, and a protected `/admin` surface — all behind `React.lazy` + `<Suspense>` with hash-aware `<ScrollToTop>` for cross-route navigation.
