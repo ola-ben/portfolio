@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mt-4 text-xl text-ink/70 sm:text-2xl font-sans"
         >
-          Junior Full-Stack Developer who ships production web apps end-to-end.
+          Junior Full-Stack Developer & Designer who designs and builds web products end-to-end.
         </motion.p>
 
         <motion.p
@@ -86,7 +86,7 @@ export default function Hero() {
             Ajani
           </a>{' '}
           — a React + Express 5 + MongoDB booking marketplace for hotels, shortlets, and event halls in
-          Oyo State. I care about clean architecture, accessible UX, performance, and shipping real
+          Oyo State. I care about clean architecture, premium design aesthetics, accessible UX, performance, and shipping real
           features fast.
         </motion.p>
 

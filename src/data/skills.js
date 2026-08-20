@@ -52,4 +52,15 @@ export const skills = [
       'npm',
     ],
   },
+  {
+    category: 'Creative & Design',
+    items: [
+      'Figma',
+      'Adobe Photoshop',
+      'Adobe Illustrator',
+      'Visual Branding',
+      'Typography',
+      'Layout Design',
+    ],
+  },
 ]

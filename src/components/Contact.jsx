@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useIsDesktop } from '../hooks/useIsDesktop'
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 import GithubIcon from './GithubIcon'
 
@@ -30,14 +31,16 @@ const items = [
 ]
 
 export default function Contact() {
+  const isDesktop = useIsDesktop()
+
   return (
     <section id="contact" className="border-t border-ink/12 px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0 }}
           className="text-center"
         >
           <p className="font-mono text-xs uppercase tracking-wider text-ink/45">Contact</p>
@@ -51,10 +54,10 @@ export default function Contact() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0, delay: isDesktop ? 0.1 : 0 }}
           className="mt-12 grid gap-4 sm:grid-cols-2"
         >
           {items.map(({ Icon, label, value, href }) => {

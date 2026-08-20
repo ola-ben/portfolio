@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion'
+import { useIsDesktop } from '../hooks/useIsDesktop'
 import profileImage from '../assets/profile2.jpeg'
 
 export default function About() {
+  const isDesktop = useIsDesktop()
+
   return (
     <section id="about" className="px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0 }}
         >
           <p className="font-mono text-xs uppercase tracking-wider text-ink/45">About</p>
           <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
@@ -18,10 +21,10 @@ export default function About() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0, delay: isDesktop ? 0.1 : 0 }}
           className="mt-10 grid gap-8 md:grid-cols-5"
         >
           <div className="md:col-span-2">
@@ -36,7 +39,7 @@ export default function About() {
           </div>
           <div className="space-y-4 text-base leading-relaxed text-ink/70 md:col-span-3">
             <p>
-              I'm a junior full-stack developer based in Ibadan, Nigeria. I currently own the Ajani
+              I'm a junior full-stack developer & designer based in Ibadan, Nigeria. I currently own the Ajani
               platform end-to-end — frontend, backend, database, and deploy pipeline — translating
               product direction into shipped features on a weekly cadence.
             </p>
@@ -47,8 +50,8 @@ export default function About() {
             </p>
             <p>
               I'm comfortable across the stack — React 18/19, Tailwind v4, Framer Motion, React
-              Query, Express 5, MongoDB, Supabase Postgres with Row Level Security — and I care
-              about clean architecture, accessible UX, performance, and shipping real features fast.
+              Query, Express 5, MongoDB, Supabase, and Figma — and I care
+              about clean architecture, premium design aesthetics, accessible UX, performance, and shipping real features fast.
             </p>
           </div>
         </motion.div>

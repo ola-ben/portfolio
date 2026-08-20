@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Lock, Terminal } from 'lucide-react'
+import { useIsDesktop } from '../hooks/useIsDesktop'
 import { projects } from '../data/projects'
 import GithubIcon from './GithubIcon'
 
@@ -14,15 +15,16 @@ function getHost(url) {
 
 export default function Projects() {
   const [expanded, setExpanded] = useState(null)
+  const isDesktop = useIsDesktop()
 
   return (
     <section id="projects" className="border-t border-ink/12 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0 }}
         >
           <p className="font-mono text-xs uppercase tracking-wider text-ink/45">Projects</p>
           <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
@@ -34,10 +36,10 @@ export default function Projects() {
           {projects.map((p, i) => (
             <motion.article
               key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={isDesktop ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
+              whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-50px' }}
+              transition={{ duration: isDesktop ? 0.5 : 0, delay: isDesktop ? i * 0.1 : 0 }}
               className="group flex h-full flex-col rounded-none border border-ink/12 bg-transparent transition-colors duration-300 hover:bg-ink/[0.02]"
             >
               {p.live ? (

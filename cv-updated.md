@@ -8,7 +8,7 @@ No 23 Rose Wale, Iwo Road, Ibadan, Oyo State, Nigeria
 
 ## CAREER PROFILE
 
-Junior Full-Stack Developer who owns production web apps end-to-end. Currently leading **Ajani** ([ajani.ai](https://ajani.ai)) — a React + Express 5 + MongoDB booking marketplace for hotels, shortlets, and event halls in Oyo State — and built **EatOrder**, a deployed food delivery + reservations platform on Vercel/Render with Supabase Postgres and Row Level Security. Comfortable with React 18/19, Tailwind v4, Framer Motion, TanStack React Query, REST API design, JWT-based RBAC, and modern deploy pipelines. Cares about clean architecture, accessible UX, performance, and shipping real features fast.
+Junior Full-Stack Developer & Designer who designs and builds web products end-to-end. Currently leading **Ajani** ([ajani.ai](https://ajani.ai)) — a React + Express 5 + MongoDB booking marketplace for hotels, shortlets, and event halls in Oyo State — and built **EatOrder**, a deployed food delivery + reservations platform on Vercel/Render with Supabase Postgres and Row Level Security. Comfortable with React 18/19, Tailwind v4, Framer Motion, TanStack React Query, REST API design, JWT-based RBAC, and modern deploy pipelines. Cares about clean architecture, premium design aesthetics, accessible UX, performance, and shipping real features fast.
 
 ---
 
@@ -93,6 +93,7 @@ _Dec 2020 – Mar 2024_
 **Frontend** · React 18 / 19, Vite, Tailwind CSS v4, Framer Motion, React Router 7, TanStack React Query, React Hook Form, Lucide / React Icons, Leaflet, JavaScript (ES6+), HTML5, CSS3
 **Backend** · Node.js, Express 4 / 5, REST API design, Mongoose, Multer, Helmet, express-rate-limit, express-validator, hpp, mongo-sanitize
 **Database & Auth** · MongoDB, PostgreSQL, Supabase (Auth, Database, Row Level Security), JWT, bcrypt
+**Design & Creative** · Figma, Adobe Photoshop, Adobe Illustrator, Visual Branding, Typography, Layout Design
 **Email & PDF** · Resend, Nodemailer, PDFKit
 **Cloud & Tooling** · Cloudinary, Vercel, Render, cPanel, Git, GitHub, npm
 **AI / Productivity** · Claude (Sonnet, Opus) for pair-programming and code review, Claude Code CLI, DeepSeek, ChatGPT, Cursor — comfortable scoping and shipping features alongside an AI agent

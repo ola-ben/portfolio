@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion'
+import { useIsDesktop } from '../hooks/useIsDesktop'
 import { experience } from '../data/experience'
 
 export default function Experience() {
+  const isDesktop = useIsDesktop()
+
   return (
     <section id="experience" className="border-t border-ink/12 px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
+          initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: isDesktop ? 0.5 : 0 }}
         >
           <p className="font-mono text-xs uppercase tracking-wider text-ink/45">Experience</p>
           <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
@@ -21,10 +24,10 @@ export default function Experience() {
           {experience.map((job, i) => (
             <motion.div
               key={job.role + job.company}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={isDesktop ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
+              whileInView={isDesktop ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: '-50px' }}
+              transition={{ duration: isDesktop ? 0.5 : 0, delay: isDesktop ? i * 0.1 : 0 }}
               className="border-b border-ink/12 last:border-b-0 pb-8 last:pb-0"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
