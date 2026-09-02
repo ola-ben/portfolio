@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { useIsDesktop } from '../hooks/useIsDesktop'
 import profileImage from '../assets/profile2.jpeg'
+import ImageWithLoader from './ImageWithLoader'
 
 export default function About() {
   const isDesktop = useIsDesktop()
@@ -29,7 +30,7 @@ export default function About() {
         >
           <div className="md:col-span-2">
             <div className="relative aspect-square overflow-hidden rounded-none border border-ink/12 bg-transparent">
-              <img
+              <ImageWithLoader
                 src={profileImage}
                 alt="Benjamin Olaoluwa"
                 loading="lazy"

@@ -4,6 +4,7 @@ import { ExternalLink, Lock, Terminal } from 'lucide-react'
 import { projects } from '../data/projects'
 import GithubIcon from './GithubIcon'
 import { useIsDesktop } from '../hooks/useIsDesktop'
+import ImageWithLoader from './ImageWithLoader'
 
 function getHost(url) {
   try {
@@ -187,7 +188,7 @@ function ProjectImage({ project }) {
       </div>
 
       <div className="relative aspect-video overflow-hidden bg-paper">
-        <img
+        <ImageWithLoader
           src={project.image}
           alt={`${project.name} screenshot`}
           loading="lazy"
@@ -195,7 +196,7 @@ function ProjectImage({ project }) {
         />
 
         {liveLink && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition duration-300 group-hover:bg-ink/[0.03] group-hover:opacity-100">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition duration-300 group-hover:bg-ink/[0.03] group-hover:opacity-100 z-20">
             <span className="inline-flex items-center gap-2 bg-ink text-paper border border-transparent px-4 py-2 rounded-none font-mono text-xs uppercase tracking-wider shadow-none">
               <ExternalLink size={12} />
               View live

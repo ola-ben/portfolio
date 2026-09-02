@@ -1,13 +1,16 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Eye, X, Palette, Compass } from 'lucide-react'
+import { Eye, X, Palette, Compass, Layout } from 'lucide-react'
 import { useIsDesktop } from '../hooks/useIsDesktop'
 import { graphics } from '../data/graphics'
+import ImageWithLoader from './ImageWithLoader'
 
 export default function Graphics() {
   const [filter, setFilter] = useState('All')
   const [selectedItem, setSelectedItem] = useState(null)
   const isDesktop = useIsDesktop()
+
+  const categories = ['All', 'UI/UX Design', 'Brand Identity', 'Social Media']
 
   const filteredItems = filter === 'All'
     ? graphics
@@ -25,13 +28,13 @@ export default function Graphics() {
         >
           <p className="font-mono text-xs uppercase tracking-wider text-ink/45">Creative & Design</p>
           <h2 className="mt-2 text-3xl font-bold text-ink sm:text-4xl tracking-tight">
-            Brand identities & visual layouts.
+            UI/UX, brand identities & visual layouts.
           </h2>
         </motion.div>
 
         {/* Filter Pills */}
         <div className="mt-10 flex flex-wrap gap-2">
-          {['All', 'Brand Identity', 'Social Media'].map(cat => (
+          {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
@@ -50,34 +53,31 @@ export default function Graphics() {
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, i) => (
               <motion.article
-                key={item.title}
                 layout
-                initial={isDesktop ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
-                whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                key={item.id || item.title}
+                initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                viewport={{ once: false, margin: '-50px' }}
-                transition={{ duration: isDesktop ? 0.4 : 0, delay: isDesktop ? i * 0.1 : 0 }}
+                transition={{ duration: isDesktop ? 0.4 : 0, delay: isDesktop ? i * 0.05 : 0 }}
                 className="group flex h-full flex-col rounded-none border border-ink/12 bg-transparent transition-colors duration-300 hover:bg-ink/[0.02]"
               >
-                {/* Image Container with Hover Overlay */}
+                {/* Image Container */}
                 <div
+                  className="relative aspect-4/3 w-full border-b border-ink/12 bg-ink/[0.02] cursor-pointer"
                   onClick={() => setSelectedItem(item)}
-                  className="relative aspect-video overflow-hidden border-b border-ink/12 bg-paper cursor-pointer"
                 >
-                  <div className="flex items-center gap-2 border-b border-ink/12 bg-ink/[0.03] px-4 py-2.5">
-                    <span className="flex gap-1.5" aria-hidden>
-                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
-                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
-                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
+                  <div className="flex items-center justify-between border-b border-ink/12 bg-ink/[0.03] px-4 py-2">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-ink/55">
+                      {item.year || '2026'}
                     </span>
-                    <span className="ml-2 inline-flex items-center gap-1.5 rounded-none bg-paper border border-ink/12 px-2 py-0.5 font-mono text-[9px] text-ink/55 uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-ink/45">
                       <Palette size={9} className="text-ink/55" />
                       {item.category}
                     </span>
                   </div>
 
                   <div className="relative w-full h-[calc(100%-38px)] overflow-hidden">
-                    <img
+                    <ImageWithLoader
                       src={item.image}
                       alt={`${item.title} preview`}
                       loading="lazy"
@@ -86,7 +86,7 @@ export default function Graphics() {
                     />
 
                     {/* Hover Zoom / View Spec Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition duration-300 group-hover:bg-ink/[0.04] group-hover:opacity-100">
+                    <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition duration-300 group-hover:bg-ink/[0.04] group-hover:opacity-100 z-20">
                       <span className="inline-flex items-center gap-2 bg-ink text-paper border border-transparent px-4 py-2 rounded-none font-mono text-xs uppercase tracking-wider shadow-none">
                         <Eye size={12} />
                         View Work
@@ -158,7 +158,7 @@ export default function Graphics() {
 
                 {/* Left Side: Large Image */}
                 <div className="w-full md:w-3/5 bg-ink/[0.01] border-b md:border-b-0 md:border-r border-ink/12 flex items-center justify-center p-6 min-h-[300px] md:min-h-0 md:overflow-y-auto">
-                  <img
+                  <ImageWithLoader
                     src={selectedItem.image}
                     alt={selectedItem.title}
                     className="max-w-full max-h-[40vh] md:max-h-[70vh] object-contain border border-ink/12"
