@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { useIsDesktop } from '../hooks/useIsDesktop'
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 import GithubIcon from './GithubIcon'
@@ -7,8 +7,8 @@ const items = [
   {
     Icon: Mail,
     label: 'Email',
-    value: 'benjaminsolaben@gmail.com',
-    href: 'mailto:benjaminsolaben@gmail.com',
+    value: 'olaben09@gmail.com',
+    href: 'mailto:olaben09@gmail.com',
   },
   {
     Icon: Phone,
@@ -48,7 +48,7 @@ export default function Contact() {
             Let's build something together...
           </h2>
           <p className="mt-4 text-base text-ink/70">
-            I'm open to junior / mid full-stack and front-end opportunities — remote or
+            I'm open to junior / mid full-stack and front-end opportunities â€” remote or
             Ibadan-based. Drop me a line.
           </p>
         </motion.div>
