@@ -1,6 +1,6 @@
 ﻿import { motion } from 'framer-motion'
 import { useIsDesktop } from '../hooks/useIsDesktop'
-import profileImage from '../assets/profile2.jpeg'
+import profileImage from '../assets/profile2.webp'
 import ImageWithLoader from './ImageWithLoader'
 
 export default function About() {

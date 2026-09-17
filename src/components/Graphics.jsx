@@ -1,9 +1,40 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Eye, X, Palette, Compass, Layout } from 'lucide-react'
+import { Eye, X, Palette, Compass, Layout, ChevronDown, ChevronUp } from 'lucide-react'
 import { useIsDesktop } from '../hooks/useIsDesktop'
 import { graphics } from '../data/graphics'
 import ImageWithLoader from './ImageWithLoader'
+
+function GraphicsDescription({ description }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  if (!description) return null
+
+  return (
+    <div className="mt-4">
+      <p className={`text-sm leading-relaxed text-ink/70 transition-all duration-200 ${!isExpanded ? 'line-clamp-2' : ''}`}>
+        {description}
+      </p>
+      {description.length > 90 && (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-1.5 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-ink/50 hover:text-ink transition-colors cursor-pointer"
+        >
+          {isExpanded ? (
+            <>
+              Read less <ChevronUp size={11} />
+            </>
+          ) : (
+            <>
+              Read more <ChevronDown size={11} />
+            </>
+          )}
+        </button>
+      )}
+    </div>
+  )
+}
 
 export default function Graphics() {
   const [filter, setFilter] = useState('All')
@@ -58,19 +89,22 @@ export default function Graphics() {
                 initial={isDesktop ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: isDesktop ? 0.4 : 0, delay: isDesktop ? i * 0.05 : 0 }}
+                transition={{ duration: 0.3, delay: isDesktop ? i * 0.05 : 0 }}
                 className="group flex h-full flex-col rounded-none border border-ink/12 bg-transparent transition-colors duration-300 hover:bg-ink/[0.02]"
               >
-                {/* Image Container */}
+                {/* Visual Preview Container */}
                 <div
-                  className="relative aspect-4/3 w-full border-b border-ink/12 bg-ink/[0.02] cursor-pointer"
+                  className="relative aspect-video w-full border-b border-ink/12 bg-paper overflow-hidden cursor-pointer"
                   onClick={() => setSelectedItem(item)}
                 >
-                  <div className="flex items-center justify-between border-b border-ink/12 bg-ink/[0.03] px-4 py-2">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-ink/55">
-                      {item.year || '2026'}
+                  {/* Top Bar Label */}
+                  <div className="flex items-center justify-between border-b border-ink/12 bg-ink/[0.03] px-4 py-2.5">
+                    <span className="flex gap-1.5" aria-hidden>
+                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
+                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
+                      <span className="h-2 w-2 rounded-none border border-ink/35 bg-transparent" />
                     </span>
-                    <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-ink/45">
+                    <span className="inline-flex items-center gap-1.5 rounded-none bg-paper border border-ink/12 px-2 py-0.5 font-mono text-[10px] text-ink/55 uppercase tracking-wider">
                       <Palette size={9} className="text-ink/55" />
                       {item.category}
                     </span>
@@ -99,9 +133,8 @@ export default function Graphics() {
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-bold text-ink tracking-tight">{item.title}</h3>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-ink/45">{item.tagline}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-ink/70">
-                    {item.description}
-                  </p>
+                  
+                  <GraphicsDescription description={item.description} />
 
                   <div className="mt-5 flex flex-wrap gap-1.5">
                     {item.tools.map(tool => (
@@ -145,7 +178,7 @@ export default function Graphics() {
                 exit={{ opacity: 0, scale: 0.95, y: 15 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full h-full md:h-auto max-w-none md:max-w-5xl rounded-none border-0 md:border border-ink/12 bg-paper shadow-none md:shadow-2xl flex flex-col md:flex-row overflow-y-auto md:overflow-hidden max-h-full md:max-h-[80vh]"
+                className="relative w-full h-full md:h-auto max-w-none md:max-w-5xl rounded-none border-0 md:border border-ink/12 bg-paper shadow-none md:shadow-2xl flex flex-col md:flex-row overflow-y-auto md:overflow-hidden max-h-full md:max-h-[80vh] custom-scrollbar"
               >
                 {/* Close Button */}
                 <button
@@ -157,7 +190,7 @@ export default function Graphics() {
                 </button>
 
                 {/* Left Side: Large Image */}
-                <div className="w-full md:w-3/5 bg-ink/[0.01] border-b md:border-b-0 md:border-r border-ink/12 flex items-center justify-center p-6 min-h-[300px] md:min-h-0 md:overflow-y-auto">
+                <div className="w-full md:w-3/5 bg-ink/[0.01] border-b md:border-b-0 md:border-r border-ink/12 flex items-center justify-center p-6 min-h-[300px] md:min-h-0 md:overflow-y-auto custom-scrollbar">
                   <ImageWithLoader
                     src={selectedItem.image}
                     alt={selectedItem.title}
@@ -166,7 +199,7 @@ export default function Graphics() {
                 </div>
 
                 {/* Right Side: Case Study Metadata */}
-                <div className="w-full md:w-2/5 p-6 md:p-8 md:overflow-y-auto flex flex-col justify-between">
+                <div className="w-full md:w-2/5 p-6 md:p-8 md:overflow-y-auto flex flex-col justify-between custom-scrollbar">
                   <div>
                     <span className="font-mono text-[10px] uppercase tracking-wider text-ink/45 border border-ink/12 rounded-none px-2 py-0.5">
                       {selectedItem.category}

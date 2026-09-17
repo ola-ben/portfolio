@@ -1,6 +1,6 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, Lock, Terminal } from 'lucide-react'
+import { ExternalLink, Lock, Terminal, ChevronDown, ChevronUp } from 'lucide-react'
 import { projects } from '../data/projects'
 import GithubIcon from './GithubIcon'
 import { useIsDesktop } from '../hooks/useIsDesktop'
@@ -12,6 +12,37 @@ function getHost(url) {
   } catch {
     return url
   }
+}
+
+function ProjectDescription({ description }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  if (!description) return null
+
+  return (
+    <div className="mt-4">
+      <p className={`text-sm leading-relaxed text-ink/70 transition-all duration-200 ${!isExpanded ? 'line-clamp-2' : ''}`}>
+        {description}
+      </p>
+      {description.length > 90 && (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-1.5 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-ink/50 hover:text-ink transition-colors cursor-pointer"
+        >
+          {isExpanded ? (
+            <>
+              Read less <ChevronUp size={11} />
+            </>
+          ) : (
+            <>
+              Read more <ChevronDown size={11} />
+            </>
+          )}
+        </button>
+      )}
+    </div>
+  )
 }
 
 export default function Projects() {
@@ -65,9 +96,8 @@ export default function Projects() {
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-bold text-ink tracking-tight">{p.name}</h3>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-ink/45">{p.tagline}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-ink/70">
-                    {p.description}
-                  </p>
+                  
+                  <ProjectDescription description={p.description} />
 
                   <div className="mt-5 flex flex-wrap gap-1.5">
                     {techStack.map(s => (
@@ -136,21 +166,21 @@ export default function Projects() {
                       >
                         <div className="border border-ink/12 bg-ink/[0.01] p-3 rounded-none font-mono text-[10px] leading-relaxed text-ink/80 select-none">
                           <div className="text-[9px] text-ink/45 border-b border-ink/12 pb-1.5 mb-2 font-bold uppercase tracking-wider">
-                            ┌── System Flow ───────
+                            ⚡ System Flow ⚡
                           </div>
                           <pre className="whitespace-pre overflow-x-auto leading-normal pb-2 font-mono scrollbar-none">
                             {p.spec.flow}
                           </pre>
                           
                           <div className="text-[9px] text-ink/45 border-y border-ink/12 py-1.5 my-2 font-bold uppercase tracking-wider">
-                            ├── Data Model / Schema ──
+                            ⚡ Data Model / Schema ⚡
                           </div>
                           <pre className="whitespace-pre overflow-x-auto leading-normal pb-2 font-mono scrollbar-none">
                             {p.spec.schema}
                           </pre>
                           
                           <div className="text-[9px] text-ink/45 border-y border-ink/12 py-1.5 my-2 font-bold uppercase tracking-wider">
-                            └── Engineering Challenge ──
+                            ⚡ Engineering Challenge ⚡
                           </div>
                           <p className="leading-normal pt-1 font-mono">
                             {p.spec.challenge}

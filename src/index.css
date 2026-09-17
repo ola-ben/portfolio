@@ -53,6 +53,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scoped Slim Scrollbar for View Work Lightbox Modal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-ink) 20%, transparent);
+  border-radius: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-ink) 45%, transparent);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-ink) 20%, transparent) transparent;
+}
+
 /* Dev Mode Design System Extensions */
 .dev-mode-active.dev-outlines * {
   outline: 1px dashed color-mix(in srgb, var(--color-ink) 12%, transparent) !important;

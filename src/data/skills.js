@@ -2,6 +2,7 @@ export const skills = [
   {
     category: 'Frontend',
     items: [
+      'Next.js 16 (App Router)',
       'React 18 / 19',
       'Vite',
       'Tailwind CSS v4',

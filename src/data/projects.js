@@ -1,11 +1,11 @@
-﻿import ajaniImage from '../assets/ajaniai.jpeg'
-import vendorhqImage from '../assets/vendorhq.jpeg'
-import storelinkImage from '../assets/storelink.png'
-import menulinkImage from '../assets/menulink.jpeg'
-import benleaseImage from '../assets/benlease.jpeg'
-import eatorderImage from '../assets/eatorder.jpeg'
-import speedtouchImage from '../assets/speedtouch.jpeg'
-import omnifoodImage from '../assets/omnifood.jpeg'
+﻿import ajaniImage from '../assets/ajaniai.webp'
+import vendorhqImage from '../assets/vendorhq.webp'
+import storelinkImage from '../assets/storelink.webp'
+import menulinkImage from '../assets/menulink.webp'
+import benleaseImage from '../assets/benlease.webp'
+import eatorderImage from '../assets/eatorder.webp'
+import speedtouchImage from '../assets/speedtouch.webp'
+import omnifoodImage from '../assets/omnifood.webp'
 
 export const projects = [
   {
@@ -39,53 +39,54 @@ export const projects = [
   },
   {
     name: 'Speedtouch',
-    tagline: 'Full-stack e-commerce and booking platform for an auto detailing & commercial cleaning service in Nigeria',
+    tagline: 'Full-stack Next.js e-commerce, service booking & admin platform for a commercial cleaning service in Ibadan',
     description:
-      'A full-stack, production-ready web application and PWA featuring product purchasing, service reservations, direct Moniepoint bank transfer checkout with automated receipt generation, 1-click WhatsApp order confirmation, Google SSO (OAuth/GSI), and a full admin dashboard for order and catalog management.',
+      'A high-performance Next.js web application built with React 19 and modern App Router architecture. Features end-to-end commercial service booking, an interactive supplies catalog with cart & checkout, dual payment flows (Paystack & automated direct bank transfer), 1-click WhatsApp order confirmation with formatted receipts, Google OAuth/GSI SSO, and a secured role-based admin portal. Engineered with Next.js App Router for dynamic sitemaps, structured Google Schema.org SEO for search sitelinks, Framer Motion micro-interactions, and a custom cPanel Apache static pipeline for zero-server-delay sub-second loading.',
     stack: [
+      'Next.js 16 (App Router)',
       'React 19',
-      'Vite',
       'Tailwind CSS v4',
-      'Supabase',
-      'PostgreSQL',
-      'Google GSI Auth',
-      'PWA',
-      'WhatsApp API'
+      'Framer Motion',
+      'Supabase (PostgreSQL & RLS)',
+      'Paystack Payments',
+      'Google Schema.org & SEO',
+      'PWA & Service Workers',
+      'Apache cPanel'
     ],
     live: 'https://speedtouch.com.ng',
     github: 'https://github.com/ola-ben/speedtouch',
     image: speedtouchImage,
     spec: {
-      flow: 'PWA Client (Offline Cache) ──► Supabase (RLS Auth & DB) ──► Moniepoint Transfer\n                                                          └──► WhatsApp API & Receipt Dispatch',
-      schema: 'orders {\n  id: uuid\n  customer_id: uuid (Google GSI / Supabase Auth)\n  items: jsonb (services & products)\n  total_amount: numeric\n  payment_method: "moniepoint_transfer"\n  status: "pending" | "confirmed" | "completed"\n}',
-      challenge: 'Engineered a seamless direct bank-transfer checkout with automated receipt rendering, WhatsApp confirmation dispatch, and Google GSI SSO with whitelist RBAC for /admin.'
+      flow: 'Next.js App Router & PWA ──► Supabase (RLS Auth & DB) ──► Paystack / Moniepoint Transfer\n                                                        ├──► Google Sitelinks & Next.js Schema.org\n                                                        └──► WhatsApp API & Receipt Dispatch',
+      schema: 'orders {\n  id: uuid\n  customer_id: uuid (Google GSI / Supabase Auth)\n  items: jsonb (services & products)\n  total_amount: numeric\n  payment_method: "paystack" | "moniepoint_transfer"\n  status: "pending" | "confirmed" | "completed"\n}',
+      challenge: 'Architected a production Next.js App Router platform optimized for zero-server-overhead cPanel hosting: configured Next.js route structures and dynamic SEO sitemaps, built bulletproof Supabase RBAC for /admin eliminating auth redirect race conditions, implemented Framer Motion micro-animations, and engineered cache-busting headers with service worker precaching for instant sub-second page loads on Nigerian mobile connections.'
     }
   },
   {
     name: 'StoreLink',
     tagline: 'Turn WhatsApp into a real storefront for Nigerian sellers',
     description:
-      'Live in production with 20+ active Nigerian merchants. A full-stack, mobile-first SaaS storefront builder for WhatsApp & Instagram vendors. Features Google OAuth onboarding, automated EmailJS welcome emails, an installable PWA with silent auto-updates, integrated Paystack subscription billing (₦1,200/mo) backed by strict PostgreSQL RLS paywalls, and structured WhatsApp cart checkout.',
+      'Live in production with 20+ active Nigerian merchants. A full-stack, mobile-first SaaS storefront builder for WhatsApp & Instagram vendors, re-architected with Next.js App Router for dynamic store indexing. Features Google OAuth onboarding, approved Live Paystack subscription billing (₦1,200/mo) with instant auto-activation, automated EmailJS welcome & expiration lifecycle alerts, an unmissable store paused re-engagement modal, Groq-powered AI shopping assistant, installable offline-first PWA, and structured WhatsApp cart checkout.',
     stack: [
-      'React 18',
-      'Vite',
+      'Next.js 16 (App Router)',
+      'React',
       'Tailwind CSS',
       'Supabase',
       'PostgreSQL RLS',
-      'Paystack Payments',
+      'Paystack Live Billing',
       'EmailJS Automation',
+      'Groq AI',
       'Progressive Web App (PWA)',
       'Google OAuth',
-      'QR Code Generation'
     ],
     live: 'https://naija-storefront.vercel.app',
     github: null,
     image: storelinkImage,
     planned: 'Custom domain mapping and automated inventory sync with WhatsApp Business Catalog.',
     spec: {
-      flow: '20+ Active Stores ───► PWA Client ───► Supabase (RLS Auth & DB) ───► Paystack (₦1,200/mo)\n                                        ├───► EmailJS (Welcome Triggers)\n                                        └───► WhatsApp Cart Link Generator',
-      schema: 'store_billing {\n  store_id: text (references stores)\n  active: boolean\n  expires_at: timestamptz\n  trial_ends_at: timestamptz\n}',
-      challenge: 'Architected an un-bypassable subscription paywall using PostgreSQL Row Level Security (RLS) & SECURITY DEFINER RPCs for Paystack transactions, and built a seamless offline-first PWA caching layer supporting 20+ active stores.'
+      flow: '20+ Active Stores ───► Next.js PWA Client ───► Supabase (RLS Auth & DB) ───► Live Paystack (₦1,200/mo)\n                                                ├───► EmailJS (Welcome & Expiration Triggers)\n                                                └───► WhatsApp Cart Link & Groq Assistant',
+      schema: 'store_billing {\n  store_id: text (references stores)\n  active: boolean\n  expires_at: timestamptz\n  trial_ends_at: timestamptz\n  paystack_ref: text\n}',
+      challenge: 'Migrated from a client SPA to Next.js App Router with Turbopack for server-side store indexing, architected an un-bypassable subscription paywall using PostgreSQL Row Level Security (RLS) & approved live Paystack transactions (₦1,200/mo) with automated lifecycle email alerts, and built a seamless offline-first PWA caching layer supporting 20+ active Nigerian merchants.'
     }
   },
   {
