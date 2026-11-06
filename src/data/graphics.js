@@ -7,9 +7,20 @@ import bookastay02 from '../assets/bookastay_02.webp'
 import bookastay03 from '../assets/bookastay_03.webp'
 import bookastay04 from '../assets/bookastay_04.webp'
 
-// New graphics assets
-import loyola01Image from '../assets/loyola 01.webp'
-import loyola02Image from '../assets/loyola 02.webp'
+// Amiloaded Series
+import amiloaded17Image from '../assets/amiloaded 17.webp'
+import amiloaded16Image from '../assets/amiloaded 16.webp'
+import amiloaded15Image from '../assets/amiloaded 15.webp'
+import amiloaded13Image from '../assets/amiloaded 13.webp'
+import amiloaded11Image from '../assets/amiloaded 11.webp'
+import amiloaded07Image from '../assets/amiloaded 07.webp'
+
+// New Creative & Transit Assets
+import newTgif02Image from '../assets/new tgif 02.webp'
+import bus001Image from '../assets/bus 001.webp'
+import editedImage from '../assets/edited.webp'
+
+// Ajani Campaign Graphics
 import tgifAjaniImage from '../assets/tgif for ajani.webp'
 import tgifffImage from '../assets/tgifff.webp'
 import ajaniiGraphsImage from '../assets/ajanii graphs.webp'
@@ -17,7 +28,58 @@ import ajaniWeek9_1Image from '../assets/ajani week 9 (1).webp'
 import ajaniWeek9_2Image from '../assets/ajani week 9(ii).webp'
 import ajaniWeek9_3Image from '../assets/ajani week 9(iii).webp'
 
+// Loyola College
+import loyola01Image from '../assets/loyola 01.webp'
+import loyola02Image from '../assets/loyola 02.webp'
+
+// Motion Graphics (videos)
+import motionVideo01 from '../assets/video/202611051159 (1).mp4'
+import ajaniMotion02Video from '../assets/video/AJN MYN GRH 02 (1).mp4'
+import tourVideo from '../assets/video/TOUR.mp4'
+
 export const graphics = [
+  {
+    title: 'Motion Graphics - Animated Promo Reel',
+    category: 'Motion Graphics',
+    year: '2026',
+    tagline: 'Animated social promo with kinetic typography & motion transitions',
+    description:
+      'Short-form animated promotional video built for social feeds. Combines kinetic typography, smooth motion transitions and brand colour accents to grab attention in the first few seconds.',
+    tools: ['Motion Design', 'Video Editing', 'Kinetic Typography', 'Social Media'],
+    video: motionVideo01,
+    details: {
+      challenge: "Holding viewer attention in fast-scrolling feeds where most people decide within the first two seconds.",
+      solution: "Front-loaded the key message with bold animated type and paced the transitions to keep the story moving to the final call-to-action."
+    }
+  },
+  {
+    title: 'Ajani - Motion Graphics Campaign 02',
+    category: 'Motion Graphics',
+    year: '2026',
+    tagline: 'Animated campaign creative for the Ajani booking marketplace',
+    description:
+      'Animated campaign video for the Ajani brand, bringing the static campaign graphics to life with motion, layered photo reveals and branded typography for Instagram, WhatsApp Status and X.',
+    tools: ['Motion Design', 'Video Editing', 'Brand Animation', 'Social Media Ads'],
+    video: ajaniMotion02Video,
+    details: {
+      challenge: "Translating the Ajani visual identity into motion while keeping it short enough for stories and status updates.",
+      solution: "Animated the existing brand elements (badges, type and green accents) with clean reveals so the video feels consistent with the static campaign."
+    }
+  },
+  {
+    title: 'Tour - Property & Venue Video Walkthrough',
+    category: 'Motion Graphics',
+    year: '2026',
+    tagline: 'Edited video tour with branded titles & smooth scene transitions',
+    description:
+      'Edited walkthrough video giving viewers a guided tour of the space. Combines smooth cuts, branded title overlays and paced transitions so viewers get a real feel for the location before booking or visiting.',
+    tools: ['Video Editing', 'Motion Design', 'Color Grading', 'Social Media'],
+    video: tourVideo,
+    details: {
+      challenge: "Showing a whole space in a short clip without the tour feeling rushed or losing the viewer halfway through.",
+      solution: "Structured the footage as a clear room-by-room journey with consistent colour grading and short branded captions guiding each scene."
+    }
+  },
   {
     title: 'Ben Design - Creative Brand Identity & Visual Layouts',
     category: 'Brand Identity',
@@ -58,6 +120,132 @@ export const graphics = [
     details: {
       challenge: "Designing an end-to-end verification flow that reassures remote buyers about physical property conditions before committing to booking fees.",
       solution: "Created a step-by-step inspection scheduler with time-slot allocations, sample report previews, and instant Paystack escrow integration."
+    }
+  },
+  {
+    title: 'Amiloaded Media - Editorial Breaking News & Headline Suite',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'High-visibility digital news broadcasting & editorial headline cards',
+    description:
+      'Dynamic social broadcasting graphics for Amiloaded Media. Engineered high-impact typographical layouts, urgent news banners, and branded portrait photo compositing optimized for rapid content dispatch across X and Facebook.',
+    tools: ['Adobe Photoshop', 'Figma', 'Editorial Layout', 'Typography', 'News Branding'],
+    image: amiloaded17Image,
+    details: {
+      challenge: "Delivering instantaneous visual credibility and legibility on mobile feeds during fast-paced news cycles without sacrificing brand elegance.",
+      solution: "Designed strict contrast bars, crisp accent badges, and a reusable portrait framing grid enabling sub-5-minute editorial asset turnaround."
+    }
+  },
+  {
+    title: 'Amiloaded Media - Entertainment & Personality Spotlight',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'Celebrity spotlight, feature interviews & public engagement layouts',
+    description:
+      'Vibrant feature design suite spotlighting cultural figures, entertainment leaders, and special bulletins. Utilizes bold typography pairings, subtle grain textures, and high-contrast color grading.',
+    tools: ['Adobe Photoshop', 'Figma', 'Color Grading', 'Photo Compositing', 'Social Media'],
+    image: amiloaded16Image,
+    details: {
+      challenge: "Highlighting diverse photographic subjects while maintaining a distinct, instantly recognizable digital publishing identity.",
+      solution: "Implemented signature gradient lighting filters, unified typography scales, and subtle gold accent dividers."
+    }
+  },
+  {
+    title: 'Amiloaded Media - Digital Publication & Editorial Cover',
+    category: 'Brand Identity',
+    year: '2026',
+    tagline: 'Editorial publication magazine layouts and formal announcements',
+    description:
+      'High-resolution digital publication design crafted for in-depth editorial reports, commemorative editions, and executive announcements across digital channels.',
+    tools: ['Figma', 'Adobe InDesign', 'Editorial Layout', 'Brand Identity'],
+    image: amiloaded15Image,
+    details: {
+      challenge: "Structuring high-density headline text and multi-source imagery into a clean, modern publication format.",
+      solution: "Crafted an asymmetric multi-column layout with generous breathing margins and refined serif display type."
+    }
+  },
+  {
+    title: 'Amiloaded Media - Current Affairs & News Graphic Layout',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'Visual journalism cards and public interest report layouts',
+    description:
+      'Information-dense social media news cards combining statistical infographics, verified quotes, and photographic highlights for civic and national reporting.',
+    tools: ['Figma', 'Photoshop', 'Infographics', 'Visual Journalism'],
+    image: amiloaded13Image,
+    details: {
+      challenge: "Balancing multiple data points and legal disclaimers in a clean square format.",
+      solution: "Employed card-within-card partitioning and clear visual hierarchy tokens."
+    }
+  },
+  {
+    title: 'Amiloaded Media - Public Notice & Informational Broadcast',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'Official press releases and public service announcement templates',
+    description:
+      'Official public announcement templates designed for clarity and authority. Features clean royal blue and white color balancing, formal seal placements, and structured callouts.',
+    tools: ['Adobe Photoshop', 'Figma', 'Typography', 'Corporate Layouts'],
+    image: amiloaded11Image,
+    details: {
+      challenge: "Ensuring formal announcements remain highly readable even when screenshotted or compressed across WhatsApp groups.",
+      solution: "Utilized heavy sans-serif headings with high accessibility contrast ratios and crisp hairline borders."
+    }
+  },
+  {
+    title: 'Amiloaded Media - High-Engagement Social Feed Creative',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'Interactive social graphics for trending topics and polls',
+    description:
+      'Engagement-driven feed cards featuring interactive question prompts, trending poll layouts, and community highlights designed to maximize shares and commentary.',
+    tools: ['Figma', 'Photoshop', 'Social Engagement', 'Visual Hierarchy'],
+    image: amiloaded07Image,
+    details: {
+      challenge: "Driving instant audience participation in overcrowded social feeds.",
+      solution: "Combined dynamic geometric background elements with clear, focused central typography."
+    }
+  },
+  {
+    title: 'Ajani Transit - Fleet Branding & Transportation Visuals',
+    category: 'Brand Identity',
+    year: '2026',
+    tagline: 'Commercial vehicle wraps, transit logistics & fleet livery design',
+    description:
+      'Comprehensive livery and fleet branding package for the Ajani transit logistics and guest transfer fleet. Features aerodynamic geometric lines, high-visibility reflective green patterns, and crisp contact typography.',
+    tools: ['Adobe Illustrator', 'Photoshop', 'Vehicle Mockup', 'Fleet Branding'],
+    image: bus001Image,
+    details: {
+      challenge: "Designing vehicle wrap graphics that remain clean, identifiable, and legible from long distances at highway speeds.",
+      solution: "Developed high-contrast bold directional speed lines and large-scale vector brand marks tailored to vehicle panel geometry."
+    }
+  },
+  {
+    title: 'Ajani TGIF - Weekend Getaway Promo Creative v2',
+    category: 'Social Media',
+    year: '2026',
+    tagline: 'Vibrant weekend hospitality and shortlet campaign banner',
+    description:
+      'Fresh promotional artwork promoting weekend shortlet discounts across Ibadan and Oyo State. Employs warm ambient lighting, modern badges, and direct WhatsApp reservation triggers.',
+    tools: ['Adobe Photoshop', 'Figma', 'Creative Direction', 'Social Media Ads'],
+    image: newTgif02Image,
+    details: {
+      challenge: "Re-invigorating the weekly TGIF campaign with fresh visual interest while maintaining brand recognition.",
+      solution: "Introduced dynamic diagonal card overlays and playful lifestyle photography accents."
+    }
+  },
+  {
+    title: 'Creative Studio - Digital Art Direction & Retouching',
+    category: 'Brand Identity',
+    year: '2026',
+    tagline: 'High-end photographic retouching, color grading & digital compositing',
+    description:
+      'Masterclass in advanced photo manipulation, commercial color grading, and skin retouching for fashion, lifestyle, and corporate marketing assets.',
+    tools: ['Adobe Photoshop', 'Lightroom', 'Color Grading', 'Photo Retouching'],
+    image: editedImage,
+    details: {
+      challenge: "Achieving flawless, high-end editorial skin tones and atmospheric lighting without artificial softness.",
+      solution: "Applied frequency separation, customized luminance curves, and disciplined dodge & burn techniques."
     }
   },
   {

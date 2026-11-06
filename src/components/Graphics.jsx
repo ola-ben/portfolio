@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Eye, X, Palette, Compass, Layout, ChevronDown, ChevronUp } from 'lucide-react'
+import { Eye, X, Palette, Compass, Layout, ChevronDown, ChevronUp, Play } from 'lucide-react'
 import { useIsDesktop } from '../hooks/useIsDesktop'
 import { graphics } from '../data/graphics'
 import ImageWithLoader from './ImageWithLoader'
+import VideoWithLoader from './VideoWithLoader'
 
 function GraphicsDescription({ description }) {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -41,7 +42,7 @@ export default function Graphics() {
   const [selectedItem, setSelectedItem] = useState(null)
   const isDesktop = useIsDesktop()
 
-  const categories = ['All', 'UI/UX Design', 'Brand Identity', 'Social Media']
+  const categories = ['All', 'UI/UX Design', 'Brand Identity', 'Social Media', 'Motion Graphics']
 
   const filteredItems = filter === 'All'
     ? graphics
@@ -111,13 +112,29 @@ export default function Graphics() {
                   </div>
 
                   <div className="relative w-full h-[calc(100%-38px)] overflow-hidden">
-                    <ImageWithLoader
-                      src={item.image}
-                      alt={`${item.title} preview`}
-                      loading="lazy"
-                      className={`h-full w-full transition duration-500 group-hover:scale-[1.02] ${item.title.toLowerCase().includes('logo') ? 'object-contain p-6' : 'object-cover'
-                        }`}
-                    />
+                    {item.video ? (
+                      <>
+                        <VideoWithLoader
+                          src={item.video}
+                          poster={item.image}
+                          inViewOnly
+                          aria-label={`${item.title} preview`}
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                        />
+                        <span className="absolute left-3 bottom-3 z-20 inline-flex items-center gap-1 bg-ink text-paper px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider">
+                          <Play size={9} />
+                          Video
+                        </span>
+                      </>
+                    ) : (
+                      <ImageWithLoader
+                        src={item.image}
+                        alt={`${item.title} preview`}
+                        loading="lazy"
+                        className={`h-full w-full transition duration-500 group-hover:scale-[1.02] ${item.title.toLowerCase().includes('logo') ? 'object-contain p-6' : 'object-cover'
+                          }`}
+                      />
+                    )}
 
                     {/* Hover Zoom / View Spec Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition duration-300 group-hover:bg-ink/[0.04] group-hover:opacity-100 z-20">
@@ -191,11 +208,21 @@ export default function Graphics() {
 
                 {/* Left Side: Large Image */}
                 <div className="w-full md:w-3/5 bg-ink/[0.01] border-b md:border-b-0 md:border-r border-ink/12 flex items-center justify-center p-6 min-h-[300px] md:min-h-0 md:overflow-y-auto custom-scrollbar">
-                  <ImageWithLoader
-                    src={selectedItem.image}
-                    alt={selectedItem.title}
-                    className="max-w-full max-h-[40vh] md:max-h-[70vh] object-contain border border-ink/12"
-                  />
+                  {selectedItem.video ? (
+                    <VideoWithLoader
+                      src={selectedItem.video}
+                      poster={selectedItem.image}
+                      controls
+                      aria-label={selectedItem.title}
+                      className="max-w-full max-h-[40vh] md:max-h-[70vh] object-contain border border-ink/12"
+                    />
+                  ) : (
+                    <ImageWithLoader
+                      src={selectedItem.image}
+                      alt={selectedItem.title}
+                      className="max-w-full max-h-[40vh] md:max-h-[70vh] object-contain border border-ink/12"
+                    />
+                  )}
                 </div>
 
                 {/* Right Side: Case Study Metadata */}
