@@ -29,7 +29,7 @@ export const projects = [
       'Google OAuth',
       'Leaflet Maps'
     ],
-    live: 'https://staging.ajani.ai',
+    live: 'https://ajani.ai/tour',
     github: 'https://github.com/LadeleAjao/Ajani-frontend',
     image: ajaniImage,
     spec: {

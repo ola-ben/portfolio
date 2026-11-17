@@ -78,7 +78,7 @@ export default function Hero() {
         >
           Currently leading{' '}
           <a
-            href="https://ajani.ai"
+            href="https://ajani.ai/tour"
             target="_blank"
             rel="noreferrer"
             className="font-medium text-ink underline underline-offset-4 decoration-ink/35 hover:decoration-ink transition-colors"
