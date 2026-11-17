@@ -6,6 +6,7 @@ import benleaseImage from '../assets/benlease.webp'
 import eatorderImage from '../assets/eatorder.webp'
 import speedtouchImage from '../assets/speedtouch.webp'
 import omnifoodImage from '../assets/omnifood.webp'
+import spinningtopImage from '../assets/spinningtop.webp'
 
 export const projects = [
   {
@@ -35,6 +36,31 @@ export const projects = [
       flow: 'Guest / Host / Corporate ─── React 19 (PWA / SSR) ─── Express 5 API ─── MongoDB Atlas\n                                                          ├─── Paystack (Checkout & Invoicing)\n                                                          ├─── Cloudinary (Responsive Media Engine)\n                                                          └─── AI Price Intelligence & Moderation',
       schema: 'listings {\n  _id: ObjectId\n  vendorId: ObjectId\n  category: "hotel" | "shortlet" | "event"\n  pricing: { baseRate: number, discounts: array, priceIntel: object }\n  inspection: { enabled: boolean, fee: number, packages: array }\n  availability: { blackoutDates: array, allocations: object }\n}',
       challenge: 'Architected a multi-tenant marketplace unifying 4 distinct booking models (room inventory, shortlet daily leases, event hall slots, and inspection requests) with atomic availability checks, webhook-verified Paystack payments, and automated Cloudinary CDN delivery.'
+    }
+  },
+  {
+    name: 'Spinning Top',
+    tagline: 'Website, online shop & admin platform for a drycleaning, laundry & home-care brand',
+    description:
+      'Full website for Spinning Top Drycleaners & Launderers, covering laundry, wet & dry cleaning, tailoring, shoe repair, upholstery & rug cleaning, janitorial and pest control services, plus a hygiene products shop and a training academy. Includes a service catalogue, product shop with cart & checkout, passwordless customer accounts (6-digit email code sign-in) with order tracking, and a role-based /admin portal where staff manage products, services, photos, orders, customers and an on/off shop switch, with changes going live instantly. Built as a static Next.js export for cPanel hosting (no Node.js server), with Supabase handling data, auth and photo storage behind Row Level Security.',
+    stack: [
+      'Next.js 16 (Static Export)',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Supabase (PostgreSQL & RLS)',
+      'Supabase Auth (Email OTP)',
+      'Supabase Storage',
+      'Apache cPanel'
+    ],
+    live: 'https://www.spinningtop.ng/',
+    github: null,
+    image: spinningtopImage,
+    planned: 'Paystack payments, order email notifications and the remaining admin screens.',
+    spec: {
+      flow: 'Visitor ──► Static Next.js (cPanel) ──► Supabase (browser client, RLS)\n                                          ├──► Customer Auth (6-digit email OTP)\n                                          ├──► Orders & Status History\n                                          └──► /admin (admins table) ──► Storage (catalogue photos)',
+      schema: 'orders {\n  id: uuid\n  customer_id: uuid (references profiles)\n  items: order_items[] (price taken from products table)\n  status: text\n  payment_received: boolean\n  history: order_status_history[]\n}',
+      challenge: 'Delivered a live, admin-editable shop on hosting with no Node.js: pages are pre-built with the catalogue, then refresh from Supabase in the browser, while Row Level Security and a server-side place_order function keep customers from editing prices or seeing each other\'s data.'
     }
   },
   {
